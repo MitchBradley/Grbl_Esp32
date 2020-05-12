@@ -95,6 +95,22 @@ void system_ini() { // Renamed from system_init() due to conflict with esp32 fil
     EXPANDER_PIN_MODE(USER_DIGITAL_PIN_4, OUTPUT);
     sys_io_control(1 << 4, false); // turn off
 #endif
+#ifdef USER_DIGITAL_PIN_5
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_5, OUTPUT);
+    sys_io_control(1 << 5, false); // turn off
+#endif
+#ifdef USER_DIGITAL_PIN_6
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_6, OUTPUT);
+    sys_io_control(1 << 6, false); // turn off
+#endif
+#ifdef USER_DIGITAL_PIN_7
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_7, OUTPUT);
+    sys_io_control(1 << 7, false); // turn off
+#endif
+#ifdef USER_DIGITAL_PIN_8
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_8, OUTPUT);
+    sys_io_control(1 << 8, false); // turn off
+#endif
 }
 
 #ifdef ENABLE_CONTROL_SW_DEBOUNCE
@@ -572,6 +588,30 @@ void sys_io_control(uint8_t io_num_mask, bool turnOn) {
 #ifdef USER_DIGITAL_PIN_4
     if (io_num_mask & 1 << 4) {
         EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_4, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_5
+    if (io_num_mask & 1 << 5) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_5, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_6
+    if (io_num_mask & 1 << 6) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_6, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_7
+    if (io_num_mask & 1 << 7) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_7, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_8
+    if (io_num_mask & 1 << 8) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_8, turnOn);
         return;
     }
 #endif

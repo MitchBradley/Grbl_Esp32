@@ -129,7 +129,7 @@
 // modal Group M10: User I/O control
 #define NON_MODAL_IO_ENABLE		1
 #define NON_MODAL_IO_DISABLE	2
-#define MAX_USER_DIGITAL_PIN	4
+#define MAX_USER_DIGITAL_PIN	8
 
 // Modal Group G8: Tool length offset
 #define TOOL_LENGTH_OFFSET_CANCEL 0 // G49 (Default: Must be zero)

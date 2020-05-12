@@ -77,8 +77,8 @@
 
 #define USE_MACHINE_INIT
 
-#define EXPANDER_0_I2C_ADDR 0x38
-#define EXPANDER_1_I2C_ADDR 0x39
+#define EXPANDER_0_I2C_ADDR 0x20
+
 
 // === Number of axes
 
@@ -104,15 +104,19 @@
 #define B_STEP_PIN              GPIO_NUM_15
 #define B_DIRECTION_PIN         GPIO_NUM_32
 
-#define USER_DIGITAL_PIN_1 (64 + 5)
-#define USER_DIGITAL_PIN_2 (64 + 6)
-#define USER_DIGITAL_PIN_3 (64 + 7)
-#define USER_DIGITAL_PIN_4 (64*1 + 0)
+#define USER_DIGITAL_PIN_1 (64 + 1)
+#define USER_DIGITAL_PIN_2 (64 + 2)
+#define USER_DIGITAL_PIN_3 (64 + 3)
+#define USER_DIGITAL_PIN_4 (64 + 4)
+#define USER_DIGITAL_PIN_5 (64 + 5)
+#define USER_DIGITAL_PIN_6 (64 + 6)
+#define USER_DIGITAL_PIN_7 (64 + 7)
+#define USER_DIGITAL_PIN_8 (64 + 8)
 
 // The 1 bits in LIMIT_MASK set the axes that have limit switches
 // For example, if the Y axis has no limit switches but the
 // X, Z, A and B axes do, the LIMIT_MASK value would be B11101
-#define LIMIT_MASK              B1111
+#define LIMIT_MASK              B0111 //A, Z, Y, X
 
 #define X_LIMIT_PIN             GPIO_NUM_34
 #define Y_LIMIT_PIN             GPIO_NUM_35

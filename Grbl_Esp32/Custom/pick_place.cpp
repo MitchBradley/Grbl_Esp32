@@ -46,13 +46,12 @@ enabled with USE_ defines in Machines/my_machine.h
 
 */
 
-#include <PCF8574.h>  // https://github.com/xreef/PCF8574_library
+#include <Adafruit_MCP23008.h>
 
 #ifdef USE_IO_EXPANDER
 
-PCF8574 expander[] = {
-  PCF8574(EXPANDER_0_I2C_ADDR),
-  PCF8574(EXPANDER_1_I2C_ADDR),
+Adafruit_MCP23008 expander[] = {
+  Adafruit_MCP23008(),
 };
 
 #define MAX_PIN 64
@@ -62,7 +61,7 @@ void IRAM_ATTR expanderPinMode(uint8_t pin, uint8_t val)
     if (val == INPUT) {
       // PCF8574 is actively driven only low, so to allow
       // a pin to be used as an input, you set it high.
-      expander[(pin/MAX_PIN)-1].write(pin%MAX_PIN, 1);
+      expander[(pin/MAX_PIN)-1].digitalWrite(pin%MAX_PIN, 1);
     }
     return;
   }
@@ -72,7 +71,7 @@ void IRAM_ATTR expanderPinMode(uint8_t pin, uint8_t val)
 void IRAM_ATTR expanderDigitalWrite(uint8_t pin, uint8_t val)
 {
   if (pin >= MAX_PIN) {
-    expander[(pin/MAX_PIN)-1].write(pin%MAX_PIN, val);
+    expander[(pin/MAX_PIN)-1].digitalWrite(pin%MAX_PIN, val);
     return;
   }
   digitalWrite(pin, val);
@@ -87,7 +86,6 @@ special things your machine needs at startup.
 void machine_init()
 {
   expander[0].begin();
-  expander[1].begin();
 }
 #endif
 
