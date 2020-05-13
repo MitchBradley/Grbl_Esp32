@@ -57,24 +57,28 @@ Adafruit_MCP23008 expander[] = {
 #define MAX_PIN 64
 void IRAM_ATTR expanderPinMode(uint8_t pin, uint8_t val)
 {
+	grbl_sendf(CLIENT_SERIAL,"pinMode: pin %d, val: %d\r\n", pin, val);
   if (pin >= MAX_PIN) {
     if (val == INPUT) {
       // PCF8574 is actively driven only low, so to allow
       // a pin to be used as an input, you set it high.
-      expander[(pin/MAX_PIN)-1].digitalWrite(pin%MAX_PIN, 1);
+      expander[(pin/MAX_PIN)-1].pinMode(pin%MAX_PIN, 1);
     }
     return;
   }
   pinMode(pin, val);
+  
 }
 
 void IRAM_ATTR expanderDigitalWrite(uint8_t pin, uint8_t val)
 {
+	grbl_sendf(CLIENT_SERIAL,"digitalWrite: pin %d, val: %d\r\n", pin, val);
   if (pin >= MAX_PIN) {
     expander[(pin/MAX_PIN)-1].digitalWrite(pin%MAX_PIN, val);
     return;
   }
   digitalWrite(pin, val);
+  
 }
 #endif
 
@@ -86,6 +90,9 @@ special things your machine needs at startup.
 void machine_init()
 {
   expander[0].begin();
+  //expanderPinMode(USER_DIGITAL_PIN_1, OUTPUT);
+  expanderDigitalWrite(USER_DIGITAL_PIN_1, HIGH);
+  expanderDigitalWrite(USER_DIGITAL_PIN_7, HIGH);
 }
 #endif
 

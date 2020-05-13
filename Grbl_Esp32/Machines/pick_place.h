@@ -104,14 +104,15 @@
 #define B_STEP_PIN              GPIO_NUM_15
 #define B_DIRECTION_PIN         GPIO_NUM_32
 
-#define USER_DIGITAL_PIN_1 (64 + 1)
-#define USER_DIGITAL_PIN_2 (64 + 2)
-#define USER_DIGITAL_PIN_3 (64 + 3)
-#define USER_DIGITAL_PIN_4 (64 + 4)
-#define USER_DIGITAL_PIN_5 (64 + 5)
-#define USER_DIGITAL_PIN_6 (64 + 6)
-#define USER_DIGITAL_PIN_7 (64 + 7)
-#define USER_DIGITAL_PIN_8 (64 + 8)
+#define USER_DIGITAL_PIN_1 (64 + 0)
+#define USER_DIGITAL_PIN_2 (64 + 1)
+#define USER_DIGITAL_PIN_3 (64 + 2)
+#define USER_DIGITAL_PIN_4 (64 + 3)
+#define USER_DIGITAL_PIN_5 (64 + 4)
+#define USER_DIGITAL_PIN_6 (64 + 5)
+#define USER_DIGITAL_PIN_7 (64 + 6)
+#define USER_DIGITAL_PIN_8 (64 + 7)
+
 
 // The 1 bits in LIMIT_MASK set the axes that have limit switches
 // For example, if the Y axis has no limit switches but the
