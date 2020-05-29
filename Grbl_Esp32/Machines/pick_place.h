@@ -70,7 +70,7 @@
 #define USE_IO_EXPANDER
 
 // Enables the driver code for the PCF8574 I2C I/O Expander
-#define USE_PCF8574
+#define USE_I2C_EXPANDER
 
 #define SDA_PIN GPIO_NUM_21
 #define SCL_PIN GPIO_NUM_22
@@ -97,10 +97,10 @@
 #define X_DIRECTION_PIN         GPIO_NUM_26
 #define Y_STEP_PIN              GPIO_NUM_14
 #define Y_DIRECTION_PIN         GPIO_NUM_25
-#define Z_STEP_PIN              GPIO_NUM_2
-#define Z_DIRECTION_PIN         GPIO_NUM_4
-#define A_STEP_PIN              GPIO_NUM_27
-#define A_DIRECTION_PIN         GPIO_NUM_33
+#define A_STEP_PIN              GPIO_NUM_2
+#define A_DIRECTION_PIN         GPIO_NUM_4
+#define Z_STEP_PIN              GPIO_NUM_27
+#define Z_DIRECTION_PIN         GPIO_NUM_33
 #define B_STEP_PIN              GPIO_NUM_15
 #define B_DIRECTION_PIN         GPIO_NUM_32
 

@@ -56,8 +56,6 @@ Adafruit_MCP23008 expander[] = {
 
 #define MAX_PIN 64
 
-int pins[8] = {1, 2, 3, 4, 5, 6, 7, 8};
-
 void IRAM_ATTR expanderPinMode(uint8_t pin, uint8_t val)
 {
   grbl_sendf(CLIENT_SERIAL,"pinMode: pin %d, val: %d\r\n", pin, val);
@@ -81,9 +79,6 @@ void IRAM_ATTR expanderDigitalWrite(uint8_t pin, uint8_t val)
 #endif
 
 void init_MCP23008_pins(){
-  //for (int i = 0; i < 8; i++) {
-    //expanderPinMode(USER_DIGITAL_PIN_[i], OUTPUT);
-  //}
   expanderPinMode(USER_DIGITAL_PIN_1, OUTPUT);
   expanderPinMode(USER_DIGITAL_PIN_2, OUTPUT);
   expanderPinMode(USER_DIGITAL_PIN_3, OUTPUT);

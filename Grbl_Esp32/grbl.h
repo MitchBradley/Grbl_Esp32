@@ -79,7 +79,7 @@
 
 #include "solenoid_pen.h"
 
-#ifdef USE_PCF8574
+#ifdef USE_I2C_EXPANDER
     #include <Wire.h>
 #endif
 
