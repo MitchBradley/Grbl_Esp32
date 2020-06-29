@@ -95,6 +95,22 @@ void system_ini() { // Renamed from system_init() due to conflict with esp32 fil
     EXPANDER_PIN_MODE(USER_DIGITAL_PIN_4, OUTPUT);
     sys_io_control(1 << 4, false); // turn off
 #endif
+#ifdef USER_DIGITAL_PIN_5
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_5, OUTPUT);
+    sys_io_control(1 << 5, false); // turn off
+#endif
+#ifdef USER_DIGITAL_PIN_6
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_6, OUTPUT);
+    sys_io_control(1 << 6, false); // turn off
+#endif
+#ifdef USER_DIGITAL_PIN_7
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_7, OUTPUT);
+    sys_io_control(1 << 7, false); // turn off
+#endif
+#ifdef USER_DIGITAL_PIN_8
+    EXPANDER_PIN_MODE(USER_DIGITAL_PIN_8, OUTPUT);
+    sys_io_control(1 << 8, false); // turn off
+#endif
 }
 
 #ifdef ENABLE_CONTROL_SW_DEBOUNCE
@@ -552,26 +568,50 @@ int32_t system_convert_corexy_to_y_axis_steps(int32_t* steps) {
 void sys_io_control(uint8_t io_num_mask, bool turnOn) {
     protocol_buffer_synchronize();
 #ifdef USER_DIGITAL_PIN_1
-    if (io_num_mask & 1 << 1) {
+    if (io_num_mask & 1 << (1-1)) {
         EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_1, turnOn);
         return;
     }
 #endif
 #ifdef USER_DIGITAL_PIN_2
-    if (io_num_mask & 1 << 2) {
+    if (io_num_mask & 1 << (2-1)) {
         EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_2, turnOn);
         return;
     }
 #endif
 #ifdef USER_DIGITAL_PIN_3
-    if (io_num_mask & 1 << 3) {
+    if (io_num_mask & 1 << (3-1)) {
         EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_3, turnOn);
         return;
     }
 #endif
 #ifdef USER_DIGITAL_PIN_4
-    if (io_num_mask & 1 << 4) {
+    if (io_num_mask & 1 << (4-1)) {
         EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_4, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_5
+    if (io_num_mask & 1 << (5-1)) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_5, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_6
+    if (io_num_mask & 1 << (6-1)) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_6, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_7
+    if (io_num_mask & 1 << (7-1)) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_7, turnOn);
+        return;
+    }
+#endif
+#ifdef USER_DIGITAL_PIN_8
+    if (io_num_mask & 1 << (8-1)) {
+        EXPANDER_DIGITAL_WRITE(USER_DIGITAL_PIN_8, turnOn);
         return;
     }
 #endif
